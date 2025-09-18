@@ -1,0 +1,151 @@
+body {
+    background-color: black;
+    display: flex;
+    justify-content: center;align-items: center;
+    height: 100vh;
+    overflow: hidden;
+}
+
+::selection {
+    background: #ffffff;
+    color: black;
+    text-shadow: none;
+}
+
+.img {
+    width:20em;
+    margin: 0;
+    padding: 0;
+    opacity: 0.8;
+    transform: translateY(2em);
+}
+
+.bg-img {
+    width: 100vw;
+    height: 100vh;
+    position: absolute;
+    margin-top: 0;
+    margin-left: 0;
+    z-index: -1;
+    background-image: url("assets/legrande.webp");
+    background-size: cover;
+    opacity: 0.1;
+    filter: saturate(0) !important;
+    animation: drift 8s ease-in-out infinite,
+      jitter 90ms linear infinite,
+      sway 2.8s ease-in-out infinite,
+      focusBreath 6s ease-in-out infinite,
+      flash 5s ease-in-out infinite;
+
+}
+.text {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 2em;
+    color:white;
+    margin-bottom: 1em;
+    font-family: "UnifrakturMaguntia", cursive;
+    font-weight: 400;
+    font-style: normal;
+    opacity: 0.8;
+}
+
+.links {
+    background: rgba(255, 255, 255, 0.2);
+    border-radius: 16px;
+    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1),;
+    backdrop-filter: blur(5px);
+    -webkit-backdrop-filter: blur(5px);
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    padding: 0.2em;
+    box-shadow: 0px 0px 30px 8px rgba(255,255,255,0.3);
+}
+
+.links .discord {
+    background-image: url("assets/discord-logo.webp");
+    filter: invert();
+}
+.links .vrchat {
+    background-image: url("assets/vrchat\ icon.png");
+}
+
+.btn {
+    transition: 0.5s;
+    margin-left: 0.1em;
+    margin-right: 0.1em;
+
+    height: 2em;
+    width: 2em;
+    background-size: cover;
+
+    z-index: 5;
+}
+.btn:hover {
+    height: 2.3em;
+    width: 2.3em;
+}
+
+@keyframes bounce {
+    0% {
+        transform: scale(1);
+    }
+    50% {
+        transform: scale(1.2);
+    }
+    100% {
+        transform: scale(1);
+    }
+}
+
+@keyframes flash {
+    0% {
+        opacity: 0.05;
+    }
+    50% {
+        opacity: 0.1;
+    }
+    100% {
+        opacity: 0.05;
+    }
+}
+
+@keyframes drift {
+    0%   { transform: translate(0px, 0px)   scale(1.03) rotate(0deg); }
+    25%  { transform: translate(1.2px, -1px) scale(1.032) rotate(-0.15deg); }
+    50%  { transform: translate(-1.4px, 1.2px) scale(1.028) rotate(0.2deg); }
+    75%  { transform: translate(0.6px, -1.4px) scale(1.031) rotate(-0.1deg); }
+    100% { transform: translate(0px, 0px)   scale(1.03) rotate(0deg); }
+}
+
+@keyframes jitter {
+    0%   { transform: translate(0, 0) rotate(0deg); }
+    50%  { transform: translate(0.2px, -0.2px) rotate(0.03deg); }
+    100% { transform: translate(-0.15px, 0.15px) rotate(-0.03deg); }
+}
+
+@keyframes sway {
+    0%   { transform: translate(0, 0) rotate(0deg); }
+    25%  { transform: translate(-0.6px, 0.4px) rotate(0.12deg); }
+    50%  { transform: translate(0.5px, -0.5px) rotate(-0.1deg); }
+    75%  { transform: translate(-0.4px, 0.3px) rotate(0.08deg); }
+    100% { transform: translate(0, 0) rotate(0deg); }
+}
+
+@keyframes focusBreath {
+    0%, 100% { filter: blur(0px) brightness(1.02) }
+    45%      { filter: blur(0.35px) brightness(1.0) }
+    55%      { filter: blur(0.25px) brightness(1.01) }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .bg-img {
+      animation: none;
+      transform: none;
+      filter: none;
+    }
+}
