@@ -1,0 +1,115 @@
+body {
+    background-color: black;
+    display: flex;
+    justify-content: center;align-items: center;
+    height: 100vh;
+    overflow: hidden;
+}
+
+::selection {
+    background: #ffffff;
+    color: black;
+    text-shadow: none;
+}
+
+.img {
+    width:12em;
+    margin: 0;
+    padding:2em;
+    opacity: 1;
+    filter: invert();
+}
+
+.fire {
+    z-index: -2;
+    height: 100vh;
+
+    position: absolute;
+    margin-top: 0;
+    margin-left: 0;
+} 
+.text {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 2em;
+    color:white;
+    margin-bottom: 0.3em;
+    font-family: "UnifrakturMaguntia", cursive;
+    font-weight: 400;
+    font-style: normal;
+
+    z-index: 5;
+}
+.cont {
+animation: drift 5s infinite, flash 5s infinite, fadein 2s cubic-bezier(0.075, 0.82, 0.165, 1);
+}
+
+.links {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.links .discord {
+    background-image: url("assets/discord-logo.webp");
+    filter: invert();
+    margin-right: 0.5em;
+}
+.links .vrchat {
+    background-image: url("assets/vrchat\ icon.png");
+}
+
+.btn {
+    transition: 0.5s;
+    margin-left: 0.1em;
+    margin-right: 0.1em;
+
+    height: 2em;
+    width: 2em;
+    background-size: cover;
+
+    z-index: 5;
+}
+
+
+@keyframes flash {
+    0% {
+        opacity: 1;
+    }
+    50% {
+        opacity: 0.8;
+    }
+    100% {
+        opacity: 1;
+    }
+}
+
+@keyframes hue {
+    0% {
+        filter: hue-rotate(0deg);
+    }
+    100% {
+        filter: hue-rotate(360deg);
+    }
+}
+
+@keyframes drift {
+    0%   { transform: translate(0px, 0px)   scale(1.03) rotate(0deg); }
+    25%  { transform: translate(1.2px, -1px) scale(1.032) rotate(-0.15deg); }
+    50%  { transform: translate(-1.4px, 1.2px) scale(1.028) rotate(0.2deg); }
+    75%  { transform: translate(0.6px, -1.4px) scale(1.031) rotate(-0.1deg); }
+    100% { transform: translate(0px, 0px)   scale(1.03) rotate(0deg); }
+}
+
+
+@media (prefers-reduced-motion: reduce) {
+    .bg-img {
+      animation: none;
+      transform: none;
+      filter: none;
+    }
+    .fire {
+        opacity: 0;
+    }
+}
